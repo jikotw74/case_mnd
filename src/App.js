@@ -4,6 +4,7 @@ import './App.css';
 import NavItem from './components/NavItem';
 import People from './components/People';
 import Footer from './components/Footer';
+import Dialogs from './container/Dialogs';
 import data from './data/data';
 import { connect } from 'react-redux'
 import { updateBodyChildren } from './actions'
@@ -58,13 +59,14 @@ class App extends Component {
         return (
             <div className="App">
                 {content}
+                <Dialogs />
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => ({
-    body: state.body
+    body: state.body,
 });
 App = connect(mapStateToProps)(App);
 export default App;

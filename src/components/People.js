@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './People.css';
 import Person from './Person';
 import data from '../data/people';
+import { connect } from 'react-redux'
+import { openDialog } from '../actions'
 
 class People extends Component {
     constructor(props) {
@@ -13,6 +15,10 @@ class People extends Component {
 
     handleClick = (index) => (event) => {
         this.setState({selected: index});
+
+        let item = data[this.state.selected];
+        let ele = <div>{item.name}</div>;
+        this.props.dispatch(openDialog(ele));
     };
 
     render() {
@@ -30,4 +36,5 @@ class People extends Component {
     }
 }
 
+People = connect()(People);
 export default People;
