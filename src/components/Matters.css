@@ -1,0 +1,6 @@
+.Matters {
+  height: 200px;
+  background-image: url("../images/line.png");
+  background-size: auto 150px;
+  background-position: 0 20px;
+  display: flex; }

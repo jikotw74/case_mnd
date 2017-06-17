@@ -1,0 +1,21 @@
+.Coin{
+	font-size: 24px;
+	font-family: 'DFYanKai', sans-serif;
+	width: 250px;
+    height: 200px;
+    background-image: url('../images/coin.png');
+    background-size: auto 169px;
+    background-position: -10px 20px;
+    background-repeat: no-repeat;
+    text-align: center;
+    cursor: pointer;
+    &.selected{
+		background-image: url('../images/knot.png');
+    }
+	&:hover, &.selected{
+		color: white;
+		font-weight: bold;
+		// background-color: rgba(50, 50, 255, 0.2);
+	}
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
