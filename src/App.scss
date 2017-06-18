@@ -42,6 +42,8 @@
 }
 
 .App-wrapper-body{
+    display: flex;
     flex:1;
     overflow: auto;
+    position: relative;
 }

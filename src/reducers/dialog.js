@@ -18,8 +18,7 @@ const dialog = (state = initState, action) => {
             }
         case 'CLOSE_DIALOG':
             return {
-                ...state, 
-                open: false
+                ...initState
             }
         default:
             return state

@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux'
 import body from './body'
+import dialog from './dialog'
 
 const appReducer = combineReducers({
     body,
-    // visibilityFilter
+    dialog
 })
 
 export default appReducer

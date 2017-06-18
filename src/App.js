@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import NavItem from './components/NavItem';
 import People from './components/People';
+import Units from './components/Units';
 import Footer from './components/Footer';
 import Dialogs from './container/Dialogs';
 import data from './data/data';
@@ -27,6 +28,9 @@ class App extends Component {
         switch(index){
             case 2:
                 this.props.dispatch(updateBodyChildren(<People />));
+                break;
+            case 3:
+                this.props.dispatch(updateBodyChildren(<Units />));
                 break;
             default: 
                 this.props.dispatch(updateBodyChildren([]));

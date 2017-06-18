@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Dialogs.css';
 import Dialog from 'material-ui/Dialog';
-// import organization from '../data/organization';
+import { closeDialog } from '../actions'
 import { connect } from 'react-redux';
 
 class Dialogs extends Component {
@@ -12,14 +12,18 @@ class Dialogs extends Component {
     //     // };
     // }
 
+    handleClick = (event) => this.props.dispatch(closeDialog());
+
     render() {        
-        console.log(this.props.dialog);
+        const closeIcon = <div className="close-dialog-btn" onClick={this.handleClick}/>;
         return (
             <div className="Dialogs">
                 <Dialog
+                    className="Dialogs-dialog"
                     modal={true}
                     open={this.props.dialog.open}
                 >
+                    {closeIcon}
                     {this.props.dialog.children}
                 </Dialog>
             </div>
