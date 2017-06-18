@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import NavItem from './components/NavItem';
-import People from './components/People';
-import Units from './components/Units';
-import Footer from './components/Footer';
+import People from './container/People';
+import Units from './container/Units';
+import Footer from './container/Footer';
 import Dialogs from './container/Dialogs';
 import data from './data/data';
 import { connect } from 'react-redux'
@@ -58,12 +58,12 @@ class App extends Component {
                     </div>
                 </div>
                 <Footer selected={this.state.selected}/>
+                <Dialogs />
             </div>
         }
         return (
             <div className="App">
                 {content}
-                <Dialogs />
             </div>
         );
     }

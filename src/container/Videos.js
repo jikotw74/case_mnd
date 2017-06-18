@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import './Matters.css';
-import Coin from './Coin';
-import data from '../data/matter';
+import './Videos.css';
+import VideoThumb from '../components/VideoThumb';
+import data from '../data/video';
 import { connect } from 'react-redux'
 import { updateBodyChildren } from '../actions'
 
-class Matters extends Component {
+class Videos extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selected: 4
+            selected: 0
         };
     }
 
@@ -20,7 +20,7 @@ class Matters extends Component {
     changeBodyChildren = () => {
         if(this.props.dispatch){
             let item = data[this.state.selected];
-            const text = "民國" + item.year + "年";
+            const text = item.content;
             let ele = <div>{text}</div>;
             this.props.dispatch(updateBodyChildren(ele));
         }
@@ -36,18 +36,18 @@ class Matters extends Component {
 
     render() {
         const list = data.map((item, index)=>{
-            const text = "民國" + item.year + "年";
+            const text = item.name;
             const selected = this.state.selected === index;
-            return <Coin key={index} text={text} y={item.y} selected={selected} click={this.handleClick(index)}/>;
+            return <VideoThumb key={index} text={text} selected={selected} click={this.handleClick(index)}/>;
         });
         
         return (
-            <div className="Matters">
+            <div className="Videos">
                 {list}
             </div>
         );
     }
 }
 
-Matters = connect()(Matters);
-export default Matters;
+Videos = connect()(Videos);
+export default Videos;

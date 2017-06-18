@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './People.css';
-import Person from './Person';
+import Person from '../components/Person';
 import data from '../data/people';
 import { connect } from 'react-redux'
 import { openDialog } from '../actions'

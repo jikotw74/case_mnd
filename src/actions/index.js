@@ -16,3 +16,15 @@ export const openDialog = (children) => ({
 export const closeDialog = () => ({
     type: 'CLOSE_DIALOG'
 });
+
+export const openTaiwanLeft = () => ({
+    type: 'OPEN_TAIWAN_LEFT'
+});
+
+export const openTaiwanRight = () => ({
+    type: 'OPEN_TAIWAN_RIGHT'
+});
+
+export const moveTaiwanOrigin = () => ({
+    type: 'MOVE_TAIWAN_ORIGIN'
+});

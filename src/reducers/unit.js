@@ -1,23 +1,23 @@
 const initState = {
     open: false,
-    children: [],
-    closeFunc: () => false
+    isLeft: false
 };
 
-const dialog = (state = initState, action) => {
+const unit = (state = initState, action) => {
     switch (action.type) {
-        case 'UPDATE_DIALOG_CHILDREN':
+        case 'OPEN_TAIWAN_LEFT':
             return {
                 ...state, 
-                children: action.children
+                open: true, 
+                isLeft: true
             }
-        case 'OPEN_DIALOG':
+        case 'OPEN_TAIWAN_RIGHT':
             return {
                 ...state, 
                 open: true,
-                children: action.children
+                isLeft: false
             }
-        case 'CLOSE_DIALOG':
+        case 'MOVE_TAIWAN_ORIGIN':
             return {
                 ...initState
             }
@@ -26,4 +26,4 @@ const dialog = (state = initState, action) => {
     }
 }
 
-export default dialog
+export default unit

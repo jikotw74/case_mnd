@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Organizations.css';
-import Coin from './Coin';
+import Coin from '../components/Coin';
 import organization from '../data/organization';
 import { connect } from 'react-redux'
 import { updateBodyChildren } from '../actions'
