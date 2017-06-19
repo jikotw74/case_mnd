@@ -8,19 +8,15 @@
   z-index: 5200;
   opacity: 0;
   will-change: opacity;
-  opacity: 0;
-}
-
-.Dialog.is-open {
-  opacity: 1;
-}
+  opacity: 0; }
+  .Dialog.is-open {
+    opacity: 1; }
 
 .Dialog-content {
   background-color: #ac6632;
   height: 100%;
   margin-left: 38%;
-  margin-right: 60px;
-}
+  margin-right: 60px; }
 
 .Dialog-close-btn {
   position: absolute;
@@ -31,5 +27,4 @@
   background-color: black;
   cursor: pointer;
   z-index: 9999;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-}
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); }

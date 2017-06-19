@@ -1,2 +1,11 @@
 .VideoThumb {
-  color: red; }
+  flex: 1;
+  margin: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .VideoThumb.selected {
+    border-color: rgba(0, 0, 255, 0.5);
+    background-color: rgba(0, 0, 255, 0.2); }

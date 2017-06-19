@@ -11,14 +11,20 @@ class Unit extends Component {
 
   render() {
     let className = "Unit";
-    var divStyle = {
+    if(this.props.isLeft){
+      className += ' is-left';
+    }
+    let divStyle = {
         left: this.props.x,
         top: this.props.y,
     };
 
     return (
         <div className={className} style={divStyle} onClick={this.props.click}>
-            {this.props.text}
+            <div className="Unit-line" />
+            <div className="Unit-text">
+                {this.props.text}
+            </div>
         </div>
     );
   }

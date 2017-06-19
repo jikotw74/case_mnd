@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Dialogs.css';
 // import Dialog from 'material-ui/Dialog';
-import Dialog from '../components/Dialog';
+// import Dialog from '../components/Dialog';
 import { closeDialog, moveTaiwanOrigin } from '../actions'
 import { connect } from 'react-redux';
 
@@ -19,24 +19,37 @@ class Dialogs extends Component {
     }
 
     render() {        
-        const blackClassName = "Dialogs_black-screen" + (this.props.dialog.open ? " is-open" : "");
+        let dialogClassName = "Dialogs" + (this.props.unit.open ? this.props.unit.isLeft ? " has-left-tw" : " has-right-tw" : "");
+        dialogClassName += (this.props.dialog.open ? " is-open" : "");
+
+        let children = [];
+        if(this.props.dialog.open){
+            const closeBtn = <div key="1" className="Dialogs-close-btn" onClick={this.handleClose}/>;
+            const content = <div key="2" className="Dialogs-content">
+                                {this.props.dialog.children}
+                            </div>;
+            const black = <div key="3" className="Dialogs_black-screen"/>;
+            children.push(closeBtn);
+            children.push(content);
+            children.push(black);
+        }
+
+        if(this.props.unit.open || this.props.app.selected === 3){
+            children.push(<div key="4" className='Dialogs-taiwan'/>);
+        }
+
         return (
-            <div className="Dialogs">
-                <Dialog
-                    className="Dialogs-dialog"
-                    open={this.props.dialog.open}
-                    onClose={this.handleClose}
-                >
-                    {this.props.dialog.children}
-                </Dialog>
-                <div className={blackClassName}/>
+            <div className={dialogClassName}>
+                {children}
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => ({
-    dialog: state.dialog
+    app: state.app,
+    dialog: state.dialog,
+    unit: state.unit
 });
 Dialogs = connect(mapStateToProps)(Dialogs);
 export default Dialogs;

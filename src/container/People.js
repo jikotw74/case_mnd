@@ -6,17 +6,15 @@ import { connect } from 'react-redux'
 import { openDialog } from '../actions'
 
 class People extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selected: 0
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         selected: 0
+    //     };
+    // }
 
     handleClick = (index) => (event) => {
-        this.setState({selected: index});
-
-        let item = data[this.state.selected];
+        let item = data[index];
         let ele = <div>{item.name}</div>;
         this.props.dispatch(openDialog(ele));
     };
@@ -24,8 +22,7 @@ class People extends Component {
     render() {
         const list = data.map((item, index)=>{
             const text = item.name;
-            const selected = this.state.selected === index;
-            return <Person key={index} text={text} y={item.y} selected={selected} click={this.handleClick(index)}/>;
+            return <Person key={index} text={text} y={item.y} click={this.handleClick(index)}/>;
         });
         
         return (

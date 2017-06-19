@@ -1,3 +1,13 @@
 .VideoThumb{
-	color:red;
+	flex:1;
+	margin: 50px;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+	&.selected{
+		border-color: fade_out(blue, 0.5);
+		background-color: fade_out(blue, 0.8);
+	}
+	display: flex;
+	align-items:center;
+	justify-content:center;
 }

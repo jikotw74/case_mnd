@@ -1,6 +1,16 @@
 .Unit{
-	color:red;
 	position: absolute;
-	border:1px solid blue;
+}
+
+.Unit-line{
+
+}
+
+.Unit-text{
+	width: 300px;
 	cursor: pointer;
+	text-shadow:5px 5px 10px black;
+	font-family: 'DFYanKai', sans-serif;
+	font-size: 36px;
+	color:white;
 }

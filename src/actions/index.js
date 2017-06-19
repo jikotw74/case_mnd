@@ -1,3 +1,9 @@
+export const updateAppSelected = (selected, home) => ({
+    type: 'UPDATE_APP_SELECTED',
+    selected,
+    home
+});
+
 export const updateBodyChildren = (children) => ({
     type: 'UPDATE_BODY_CHILDREN',
     children

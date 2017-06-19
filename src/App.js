@@ -8,69 +8,71 @@ import Footer from './container/Footer';
 import Dialogs from './container/Dialogs';
 import data from './data/data';
 import { connect } from 'react-redux'
-import { updateBodyChildren } from './actions'
+import { updateAppSelected, updateBodyChildren, moveTaiwanOrigin, closeDialog } from './actions'
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            home: true,
-            selected: false,
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         home: true,
+    //         selected: false,
+    //     };
+    // }
 
     selectNav = (index) => (event) => {
-        this.setState({
-            home:false,
-            selected: index
-        });
+        if(index !== this.props.app.selected){
+            this.props.dispatch(updateAppSelected(index, false));
+            this.props.dispatch(moveTaiwanOrigin());
+            this.props.dispatch(closeDialog());
 
-        switch(index){
-            case 2:
-                this.props.dispatch(updateBodyChildren(<People />));
-                break;
-            case 3:
-                this.props.dispatch(updateBodyChildren(<Units />));
-                break;
-            default: 
-                this.props.dispatch(updateBodyChildren([]));
+            switch(index){
+                case 2:
+                    this.props.dispatch(updateBodyChildren(<People />));
+                    break;
+                case 3:
+                    this.props.dispatch(updateBodyChildren(<Units />));
+                    break;
+                default: 
+                    this.props.dispatch(updateBodyChildren([]));
+            }
         }
     };
 
     render() {
-        let content;
-        let navList = data.map((obj, index) => <NavItem key={index} text={obj.name} selected={this.state.selected === index} click={this.selectNav(index)}/>);
-        if(this.state.home){
-            content = <div className="App-home">
-                <div className="App-home-nav">
-                    {navList}
+        let app = this.props.app;
+        let navList = data.map((obj, index) => <NavItem key={index} text={obj.name} selected={app.selected === index} click={this.selectNav(index)}/>);
+        let className = "App" + (app.home ? ' at-home' : '');
+        if(this.props.dialog.open){
+            className += ' has-dialog';
+        }
+
+        return (
+            <div className={className}>
+                <div className="App-home">
+                    <div className="App-home-nav">
+                        {navList}
+                    </div>
                 </div>
-            </div>
-        }else{
-            content = <div className="App-wrapper">
-                <div className="App-wrapper-header" />
-                <div className="App-wrapper-content">
+                <div className="App-wrapper">
+                    <div className="App-wrapper-header" />
                     <div className="App-wrapper-nav">
                         {navList}
                     </div>
                     <div className="App-wrapper-body">
                         {this.props.body.children}
                     </div>
+                    <Footer selected={app.selected}/>
+                    <Dialogs />
                 </div>
-                <Footer selected={this.state.selected}/>
-                <Dialogs />
-            </div>
-        }
-        return (
-            <div className="App">
-                {content}
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => ({
+    app: state.app,
     body: state.body,
+    dialog: state.dialog
 });
 App = connect(mapStateToProps)(App);
 export default App;
