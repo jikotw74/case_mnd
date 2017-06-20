@@ -17,7 +17,9 @@ class Coin extends Component {
     };
     return (
         <div className={className} onClick={this.props.click} style={style}>
-            {this.props.text}
+            <div className="Coin-text">
+                {this.props.text}
+            </div>    
         </div>
     );
   }

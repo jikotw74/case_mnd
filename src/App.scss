@@ -22,6 +22,16 @@
         // }
     }
 
+    &.no-footer{
+        .App-wrapper-body{
+            height: $App_height - $App_header_height;
+        }
+        .footer{
+            z-index: 0;
+            opacity: 0;
+        }
+    }
+
     .App-home{
         z-index: $zIndex_app - 1;
     }

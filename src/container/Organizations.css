@@ -3,4 +3,28 @@
   background-image: url("../images/line.png");
   background-size: auto 150px;
   background-position: 0 20px;
-  display: flex; }
+  display: flex;
+}
+
+.Organization-content {
+  display: flex;
+  flex: 1;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 600px;
+}
+
+.Organization-image {
+  width: 500px;
+}
+
+.Organization-text {
+  font-family: 'DFYanKai', sans-serif;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  flex: 1;
+  margin: 50px;
+  font-size: 30px;
+  line-height: 1.5em;
+}

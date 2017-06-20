@@ -1,10 +1,65 @@
 .Unit {
-  position: absolute; }
+  position: absolute;
+}
+
+.Unit-line {
+  position: absolute;
+  width: 150px;
+  height: 2px;
+  background-color: white;
+  top: 25px;
+  left: -150px;
+  box-shadow: 1px 1px 10px black;
+}
+
+.Unit-line.is-left:before {
+  display: block;
+  content: "";
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  top: -7px;
+  position: absolute;
+}
+
+.Unit-line.is-right:before {
+  display: block;
+  content: "";
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  top: -7px;
+  right: 0;
+  position: absolute;
+}
 
 .Unit-text {
-  width: 300px;
-  cursor: pointer;
-  text-shadow: 5px 5px 10px black;
   font-family: 'DFYanKai', sans-serif;
+  cursor: pointer;
+  text-shadow: 1px 1px 10px black;
+  font-size: 30px;
+  color: white;
+}
+
+.Unit-content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.Unit-content .Unit-name {
+  font-family: 'DFYanKai', sans-serif;
+  margin-bottom: 10px;
   font-size: 36px;
-  color: white; }
+  font-weight: bold;
+  color: white;
+}
+
+.Unit-content .Unit-description {
+  font-family: 'DFYanKai', sans-serif;
+  flex: 1;
+  line-height: 2em;
+  font-size: 24px;
+}

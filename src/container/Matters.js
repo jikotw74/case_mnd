@@ -19,9 +19,11 @@ class Matters extends Component {
 
     changeBodyChildren = () => {
         if(this.props.dispatch){
-            let item = data[this.state.selected];
-            const text = "民國" + item.year + "年";
-            let ele = <div>{text}</div>;
+            // let item = data[this.state.selected];
+            const text = <div key="1" className="Matter-float"></div>
+            // const text = <div key="2" className="Organization-text">{item.text}</div>
+            // const children = [text];
+            let ele = <div className="Matter-content">{text}</div>;
             this.props.dispatch(updateBodyChildren(ele));
         }
     }

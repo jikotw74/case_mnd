@@ -3,4 +3,20 @@
   background-image: url("../images/line.png");
   background-size: auto 150px;
   background-position: 0 20px;
-  display: flex; }
+  display: flex;
+}
+
+.Matter-float {
+  position: absolute;
+  width: 1420px;
+  height: 120px;
+  background-image: url("../images/matter/matter_float.png");
+  background-size: cover;
+  top: 300px;
+}
+
+.Matter-content {
+  background-image: url("../images/matter/matter_content.png");
+  background-size: cover;
+  flex: 1;
+}

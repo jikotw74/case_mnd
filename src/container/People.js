@@ -14,15 +14,17 @@ class People extends Component {
     // }
 
     handleClick = (index) => (event) => {
-        let item = data[index];
-        let ele = <div>{item.name}</div>;
+        const item = data[index];
+        const image = <Person key="1" index={index} text={item.name}/>
+        const description = <div key="2" className="Person-description">{item.description}</div>;
+        const children = [image, description];
+        let ele = <div className="Person-detail">{children}</div>;
         this.props.dispatch(openDialog(ele));
     };
 
     render() {
         const list = data.map((item, index)=>{
-            const text = item.name;
-            return <Person key={index} text={text} y={item.y} click={this.handleClick(index)}/>;
+            return <Person key={index} index={index} text={item.name} click={this.handleClick(index)}/>;
         });
         
         return (

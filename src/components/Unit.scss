@@ -1,16 +1,68 @@
+@import 'styles/_mixins.scss';
+
 .Unit{
 	position: absolute;
 }
 
 .Unit-line{
-
+	position: absolute;
+	width: 150px;
+	height: 2px;
+	background-color: white;
+	top:25px;
+	left:-150px;
+	&.is-left{
+		&:before{
+			display: block;
+			content: "";
+			border-radius:50%;
+			width: 15px;
+			height: 15px;
+			background-color: white;
+			top:-7px;
+			position: absolute;
+		}
+	}
+	&.is-right{
+		&:before{
+			display: block;
+			content: "";
+			border-radius:50%;
+			width: 15px;
+			height: 15px;
+			background-color: white;
+			top:-7px;
+			right: 0;
+			position: absolute;
+		}
+	}
+	
+	box-shadow:1px 1px 10px black;
 }
 
 .Unit-text{
-	width: 300px;
+	@include fontDFYanKai;
 	cursor: pointer;
-	text-shadow:5px 5px 10px black;
-	font-family: 'DFYanKai', sans-serif;
-	font-size: 36px;
+	text-shadow:1px 1px 10px black;
+	font-size: 30px;
 	color:white;
+}
+
+.Unit-content{
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	.Unit-name{
+		@include fontDFYanKai;
+		margin-bottom: 10px;
+		font-size: 36px;
+		font-weight: bold;
+		color: white;
+	}
+	.Unit-description{
+		@include fontDFYanKai;
+		flex:1;
+		line-height: 2em;
+		font-size: 24px;
+	}
 }

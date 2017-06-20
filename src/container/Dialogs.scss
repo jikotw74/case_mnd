@@ -4,7 +4,7 @@
 @import 'styles/_color.scss';
 @import 'styles/_animations.scss';
 
-$contentMarginRight: 340px;
+$contentMarginRight: 0px;
 
 .Dialogs{
 	position: fixed;
@@ -74,6 +74,7 @@ $contentMarginTop:280px;
 	height: $contentHeight;
 	top:$contentMarginTop;
 	left:$App_nav_width;
+    display: flex;
 }
 
 .Dialogs-close-btn {
@@ -83,13 +84,16 @@ $contentMarginTop:280px;
 	@include fade-in;
     position: absolute;
     top: $contentMarginTop - ($closeH / 2);
-    right: $contentMarginRight - ($closeW / 2);
+    right: 0;
     width: $closeW;
     height: $closeH;
     background-color: black;
     cursor: pointer;
     z-index: $zIndex_black_screen;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+    background-image: url('../images/ic_clear_white_24dp_2x.png');
+    background-size: cover;
+    background-position: center center;
 }
 
 .Dialogs_black-screen{

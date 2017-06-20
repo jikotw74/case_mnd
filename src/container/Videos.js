@@ -19,9 +19,9 @@ class Videos extends Component {
 
     changeBodyChildren = () => {
         if(this.props.dispatch){
-            let item = data[this.state.selected];
-            const text = item.content;
-            let ele = <div>{text}</div>;
+            // let item = data[this.state.selected];
+            // const text = item.content;
+            let ele = <div className="Video-content"></div>;
             this.props.dispatch(updateBodyChildren(ele));
         }
     }

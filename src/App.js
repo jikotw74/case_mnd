@@ -4,6 +4,8 @@ import './App.css';
 import NavItem from './components/NavItem';
 import People from './container/People';
 import Units from './container/Units';
+import Videos from './container/Videos';
+import History from './container/History';
 import Footer from './container/Footer';
 import Dialogs from './container/Dialogs';
 import data from './data/data';
@@ -32,6 +34,12 @@ class App extends Component {
                 case 3:
                     this.props.dispatch(updateBodyChildren(<Units />));
                     break;
+                case 4:
+                    this.props.dispatch(updateBodyChildren(<Videos />));
+                    break;
+                case 5:
+                    this.props.dispatch(updateBodyChildren(<History />));
+                    break;
                 default: 
                     this.props.dispatch(updateBodyChildren([]));
             }
@@ -42,6 +50,9 @@ class App extends Component {
         let app = this.props.app;
         let navList = data.map((obj, index) => <NavItem key={index} text={obj.name} selected={app.selected === index} click={this.selectNav(index)}/>);
         let className = "App" + (app.home ? ' at-home' : '');
+        if(app.selected === 2 || app.selected === 3){
+            className += ' no-footer';
+        }
         if(this.props.dialog.open){
             className += ' has-dialog';
         }

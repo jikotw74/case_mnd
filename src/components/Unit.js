@@ -17,12 +17,27 @@ class Unit extends Component {
     let divStyle = {
         left: this.props.x,
         top: this.props.y,
+        width: this.props.width,
+        height: this.props.height
     };
 
+    let line = this.props.line;
+    let lineStyle = {
+        left: line.left,
+        top: line.top,
+        width: line.width,
+    }
+    let lineClassName = 'Unit-line';
+    if(line.isLeft){
+        lineClassName += ' is-left';
+    }else{
+        lineClassName += ' is-right';
+    }
+
     return (
-        <div className={className} style={divStyle} onClick={this.props.click}>
-            <div className="Unit-line" />
-            <div className="Unit-text">
+        <div className={className} style={divStyle}>
+            <div className={lineClassName} style={lineStyle}/>
+            <div className="Unit-text" onClick={this.props.click}>
                 {this.props.text}
             </div>
         </div>

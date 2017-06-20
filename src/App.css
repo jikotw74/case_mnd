@@ -222,6 +222,11 @@
     animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both; }
   .App.at-home .App-wrapper {
     display: none; }
+  .App.no-footer .App-wrapper-body {
+    height: 1000px; }
+  .App.no-footer .footer {
+    z-index: 0;
+    opacity: 0; }
   .App .App-home {
     z-index: 9998; }
 

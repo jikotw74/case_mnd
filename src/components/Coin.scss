@@ -9,13 +9,26 @@
     background-repeat: no-repeat;
     text-align: center;
     cursor: pointer;
+    color: white;
+    position: relative;
     &.selected{
 		background-image: url('../images/knot.png');
+		.Coin-text{
+			background-image: url('../images/red_bg.png');
+			background-size: 100%;
+			background-repeat: no-repeat;
+			background-position: center -15px;
+			padding-bottom: 10px;
+		}
     }
 	&:hover, &.selected{
-		color: white;
-		font-weight: bold;
+		// font-weight: bold;
 		// background-color: rgba(50, 50, 255, 0.2);
+
 	}
-	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+	
+}
+
+.Coin-text{
+	text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
 }

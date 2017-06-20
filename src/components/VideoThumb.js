@@ -14,7 +14,10 @@ class VideoThumb extends Component {
     if(this.props.selected)className += " selected";
     return (
         <div className={className} onClick={this.props.click}>
-            {this.props.text}
+            <div className="VideoThumb-image"/>
+            <div className="VideoThumb-title">
+                {this.props.text}
+            </div>
         </div>
     );
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './History.css';
-import VideoThumb from '../components/VideoThumb';
+import HistoryThumb from '../components/HistoryThumb';
 import data from '../data/history';
 import { connect } from 'react-redux'
 import { updateBodyChildren } from '../actions'
@@ -19,9 +19,9 @@ class History extends Component {
 
     changeBodyChildren = () => {
         if(this.props.dispatch){
-            let item = data[this.state.selected];
-            const text = item.content;
-            let ele = <div>{text}</div>;
+            // let item = data[this.state.selected];
+            // const text = item.content;
+            let ele = <div className="History-content"></div>;
             this.props.dispatch(updateBodyChildren(ele));
         }
     }
@@ -38,7 +38,7 @@ class History extends Component {
         const list = data.map((item, index)=>{
             const text = item.name;
             const selected = this.state.selected === index;
-            return <VideoThumb key={index} text={text} selected={selected} click={this.handleClick(index)}/>;
+            return <HistoryThumb key={index} index={index} text={text} selected={selected} click={this.handleClick(index)}/>;
         });
         
         return (
