@@ -1,7 +1,7 @@
 @import 'styles/_keyframes.scss';
 
-@mixin fade-in {
-	animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+@mixin fade-in($sec:1.2s) {
+	animation: fade-in $sec cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 .slide-in-bck-center {
 	animation: slide-in-bck-center 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;

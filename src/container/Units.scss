@@ -8,12 +8,17 @@
 	flex:1;
 	position: relative;
 	overflow: hidden;
+	@include transAnimation;
 	.Unit{
+		@include transAnimation;
 		z-index: $zIndex_unit;
 	}
 
 	&.is-open{
 		opacity: 0;
+		.Unit{
+			opacity: 0;
+		}
 	}
 }
 
